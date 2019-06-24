@@ -1,0 +1,35 @@
+{
+    // side bar settings
+    "workbench.iconTheme": "ayu",
+    // editor settings
+    "editor.fontSize": 16,
+    "editor.fontWeight": "500",
+    "editor.formatOnSave": true,
+    // debug settings
+    "debug.console.fontSize": 16,
+    // terminal settings
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontWeight": "600",
+    "window.zoomLevel": 1,
+    // use split json for changing settings
+    "workbench.settings.editor": "json",
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.settings.useSplitJSON": true,
+    // python settings
+    "python.pythonPath": "python",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pyTestEnabled": true,
+    // code-runner settings
+    "code-runner.executorMap": {
+        "python": "$pythonPath -u $fullFileName"
+    },
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.showExecutionMessage": false,
+    "code-runner.ignoreSelection": true,
+    "code-runner.saveFileBeforeRun": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
+}
