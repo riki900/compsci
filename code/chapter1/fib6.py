@@ -5,7 +5,7 @@ will return all fib numbers up to n
 
 from typing import Generator
 
-def fib6(n: int) -> int:
+def fib6(n: int) -> Generator[int, None, None]:
     # first call 
     yield 0
     if n > 0:
