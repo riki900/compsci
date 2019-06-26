@@ -17,21 +17,35 @@ class CompressedGene(object):
         self._decompression_map: Dict[int, str] = dict(
             [(v, k) for k, v in self._compression_map.items()]
         )
-        self._bit_string = self._compress(gene)
+        self._compress(gene)
 
-    def _compress(self, gene) -> int:
+    def _compress(self, gene):
         self._bit_string = 1
-        for necleotide in gene.toupper():
+        for necleotide in gene.upper():
             self._bit_string <<= 2
             compressed: int = self._compression_map[necleotide]
             self._bit_string |= compressed
 
-        return compressed
+
+    def _decompress(self) -> str:
+        gene: str = ""
+        # uncompress will built in reverse order
+        for i in range(0, self._bit_string.bit_length() - 1, 2):
+            bits: int = self._bit_string >> i & 0b11
+            gene += self._decompression_map[bits]
+
+        # return string in correct order
+        return gene[::-1]
+
+    def __str__(self) -> str:
+        return self._decompress()
 
 
 def main():
-    gc = CompressedGene("ACGT")
-    print("Fini")
+    testgene: str = "ACGT"
+    gc = CompressedGene(testgene)
+    assert testgene == str(gc)
+    print('Terminado - OK')
 
 
 if __name__ == "__main__":
