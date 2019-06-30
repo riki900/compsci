@@ -12,7 +12,6 @@ def calc_pi(nterms: int) -> float:
 
     for _ in range(nterms):
         pi += operation * (NUMERATOR / demoninator)
-        print(_,pi,demoninator,operation)
         demoninator += INCREMENT
         operation *= FLIPSIGN
 
